@@ -9,6 +9,7 @@ const {
 } = require('./users');
 const Notices = require('./notices');
 const Developers = require('./developers');
+const Event = require('./event');
 
 module.exports = {
   Breed,
@@ -20,4 +21,5 @@ module.exports = {
   userValidationSchema,
   userUpdateValidationSchema,
   Developers,
+  Event,
 };

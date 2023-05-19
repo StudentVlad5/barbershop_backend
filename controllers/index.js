@@ -8,6 +8,7 @@ const {
 const auth = require("./auth");
 const user = require("./user");
 const notices = require("./notices");
+const event = require("./event");
 const developers = require("./developers");
 
 module.exports = {
@@ -20,4 +21,5 @@ module.exports = {
   user,
   notices,
   developers,
+  event,
 };
