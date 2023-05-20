@@ -12,6 +12,7 @@ const {
   routerAdmin,
   routerDevelopers,
   routerEvent,
+  routerOwner,
 } = require("./routes/api");
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.json());
 
 app.use("/api/auth", routerAuth);
 app.use("/api/event", routerEvent);
+app.use("/api/owner", routerOwner);
 app.use("/api/notices", routerNotices);
 app.use("/api/user", routerUser);
 app.use("/api/friends", routerFriends);

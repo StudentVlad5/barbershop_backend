@@ -1,15 +1,16 @@
-const Pet = require('./petModel');
-const News = require('./news');
-const Breed = require('./breeds');
-const Friends = require('./friends');
+const Pet = require("./petModel");
+const News = require("./news");
+const Breed = require("./breeds");
+const Friends = require("./friends");
 const {
   Users,
   userValidationSchema,
   userUpdateValidationSchema,
-} = require('./users');
-const Notices = require('./notices');
-const Developers = require('./developers');
-const Event = require('./event');
+} = require("./users");
+const Notices = require("./notices");
+const Developers = require("./developers");
+const Event = require("./event");
+const Owner = require("./owner");
 
 module.exports = {
   Breed,
@@ -22,4 +23,5 @@ module.exports = {
   userUpdateValidationSchema,
   Developers,
   Event,
+  Owner,
 };

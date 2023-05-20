@@ -9,6 +9,7 @@ const auth = require("./auth");
 const user = require("./user");
 const notices = require("./notices");
 const event = require("./event");
+const owner = require("./owner");
 const developers = require("./developers");
 
 module.exports = {
@@ -22,4 +23,5 @@ module.exports = {
   notices,
   developers,
   event,
+  owner
 };
