@@ -37,6 +37,25 @@ const eventSchema = new Schema(
       type: Date,
       default: Date.now,
     },
+    updatedAt: {
+      type: Date,
+      default: Date.now,
+    },
+    Guid: {
+      type: String,
+    },
+    StartTimezone: {
+      type: String,
+      default: null,
+    },
+    EndTimezone: {
+      type: String,
+      default: null,
+    },
+    RecurrenceRule: {
+      type: String,
+      default: null,
+    },
   },
   {
     versionKey: false,

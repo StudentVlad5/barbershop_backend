@@ -2,7 +2,7 @@ const { Event } = require("../../models");
 
 const update = async (req, res, next) => {
   var eventData = [];
-  console.log("reqest", req.body);
+
   try {
     if (
       req.body.action === "insert" ||
@@ -10,10 +10,8 @@ const update = async (req, res, next) => {
     ) {
       req.body.action === "insert"
         ? eventData.push(req.body.value)
-        : (eventData.push(req.body.added));
+        : (eventData = req.body.added);
       for (var a = 0; a < eventData.length; a++) {
-        // eventData[a].StartTime = new Date(eventData[a].StartTime);
-        // eventData[a].EndTime = new Date(eventData[a].EndTime);
         await Event.create(eventData[a]);
       }
     }
@@ -25,10 +23,14 @@ const update = async (req, res, next) => {
         ? eventData.push(req.body.value)
         : (eventData = req.body.changed);
       for (var b = 0; b < eventData.length; b++) {
+        const key = await eventData[b]._id;
         delete eventData[b]._id;
         // eventData[b].StartTime = new Date(eventData[b].StartTime);
         // eventData[b].EndTime = new Date(eventData[b].EndTime);
-        await Event.updateOne({ Id: eventData[b].Id }, { $set: eventData[b] });
+
+        console.log(eventData[b]);
+        console.log("key", key);
+        await Event.updateOne({ _id: key }, { $set: eventData[b] });
       }
     }
     if (
