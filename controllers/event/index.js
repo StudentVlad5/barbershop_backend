@@ -1,5 +1,5 @@
 const addFavorite = require('./addFavorite');
-const createNotices = require('./create');
+const update = require('./update');
 const get = require('./get');
 const getId = require('./getId');
 const getNotices = require('./getAll');
@@ -8,7 +8,7 @@ const deleteNotices = require('./deleteNotices');
 const editNotices = require('./editNotices');
 
 module.exports = {
-  createNotices,
+  update,
   get,
   getId,
   getNotices,

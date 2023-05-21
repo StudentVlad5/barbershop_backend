@@ -3,18 +3,11 @@ const { event } = require("../../controllers");
 const { ctrlWrapper } = require("../../middleWares");
 
 const {
-  createNotices,
-  get,
-  getId,
-  addFavorite,
-  deleteFavorite,
-  deleteNotices,
-  updateNotices,
-  editNotices,
+  update
 } = event;
 
 const router = express.Router();
 
-router.post("/", ctrlWrapper(get));
+router.post("/", ctrlWrapper(update));
 
-module.exports = routerEvent = router;
+module.exports = routerUpdateEvent = router;

@@ -9,6 +9,7 @@ const routerFriends = require("./friends");
 const routerNotices = require("./notices");
 const routerDevelopers = require("./developers");
 const routerEvent = require("./event");
+const routerUpdateEvent = require("./updateEvent");
 const routerOwner = require("./owner");
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
   routerAdmin,
   routerDevelopers,
   routerEvent,
+  routerUpdateEvent,
   routerOwner
 };

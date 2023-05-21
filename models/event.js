@@ -3,9 +3,8 @@ const { Schema, model, SchemaTypes } = require("mongoose");
 const eventSchema = new Schema(
   {
     // owner: { type: SchemaTypes.ObjectId, ref: "users" },
-    Id: {
-      type: Number,
-      required: [true, "Id is required"],
+    Location: {
+      type: String,
     },
     Subject: {
       type: String,
@@ -23,15 +22,14 @@ const eventSchema = new Schema(
       type: Boolean,
       required: [true, "IsAllDay is required"],
     },
-    Status: {
+    Description: {
       type: String,
-      required: [true, "Status is required"],
-    },
-    Priority: {
-      type: String,
-      required: [true, "Priority is required"],
     },
     OwnerId: {
+      type: Number,
+      required: [true, "OwnerId is required"],
+    },
+    Id: {
       type: Number,
       required: [true, "OwnerId is required"],
     },
