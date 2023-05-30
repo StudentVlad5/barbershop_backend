@@ -39,7 +39,7 @@ app.use("/api/friends", routerFriends);
 app.use("/api/news", routerNews);
 app.use("/api/pets", routerPets);
 app.use("/api/breeds", routerBreeds);
-app.use("/api/developers", routerDevelopers);
+app.use("/developers", routerDevelopers);
 app.use("/api/admin", routerAdmin);
 
 // app.use('/api/location', ctrl.location);

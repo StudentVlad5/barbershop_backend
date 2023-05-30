@@ -25,5 +25,5 @@ module.exports = {
   routerDevelopers,
   routerEvent,
   routerUpdateEvent,
-  routerOwner
+  routerOwner,
 };
