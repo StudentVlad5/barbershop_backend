@@ -30,8 +30,8 @@ const eventSchema = new Schema(
       required: [true, "OwnerId is required"],
     },
     Id: {
-      type: Number,
-      required: [true, "OwnerId is required"],
+      type: String,
+      required: [true, "Id is required"],
     },
     createdAt: {
       type: Date,
