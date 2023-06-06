@@ -33,14 +33,7 @@ app.use("/api/auth", routerAuth);
 app.use("/api/get_event", routerEvent);
 app.use("/api/batch_event", routerUpdateEvent);
 app.use("/api/owner", routerOwner);
-app.use("/api/notices", routerNotices);
 app.use("/api/user", routerUser);
-app.use("/api/friends", routerFriends);
-app.use("/api/news", routerNews);
-app.use("/api/pets", routerPets);
-app.use("/api/breeds", routerBreeds);
-app.use("/developers", routerDevelopers);
-app.use("/api/admin", routerAdmin);
 
 // app.use('/api/location', ctrl.location);
 
