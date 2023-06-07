@@ -35,7 +35,7 @@ const eventSchema = new Schema(
       required: [true, "CreateId is required"],
     },
     StatusForChange: {
-      type: boolean,
+      type: Boolean,
       default: false,
     },
     Id: {
