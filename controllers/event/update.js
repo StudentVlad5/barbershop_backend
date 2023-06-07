@@ -17,7 +17,9 @@ const update = async (req, res, next) => {
     }
     if (
       req.body.action === "update" ||
-      (req.body.action === "batch" && req.body.changed.length > 0)
+      (req.body.action === "batch" &&
+        req.body.changed.length > 0 &&
+        req.body.changed[0].StatusForChange === true)
     ) {
       req.body.action === "update"
         ? eventData.push(req.body.value)
@@ -35,7 +37,9 @@ const update = async (req, res, next) => {
     }
     if (
       req.body.action === "remove" ||
-      (req.body.action === "batch" && req.body.deleted.length > 0)
+      (req.body.action === "batch" &&
+        req.body.deleted.length > 0 &&
+        req.body.deleted[0].StatusForChange === true)
     ) {
       req.body.action === "remove"
         ? eventData.push({ Id: req.body.key })
