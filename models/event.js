@@ -29,6 +29,10 @@ const eventSchema = new Schema(
       type: Number,
       required: [true, "OwnerId is required"],
     },
+    CreateId: {
+      type: String,
+      required: [true, "CreateId is required"],
+    },
     Id: {
       type: String,
       required: [true, "Id is required"],
