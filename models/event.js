@@ -36,7 +36,7 @@ const eventSchema = new Schema(
     },
     StatusForChange: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     Id: {
       type: String,
