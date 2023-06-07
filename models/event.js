@@ -1,3 +1,4 @@
+const { boolean } = require("joi");
 const { Schema, model, SchemaTypes } = require("mongoose");
 
 const eventSchema = new Schema(
@@ -32,6 +33,10 @@ const eventSchema = new Schema(
     CreateId: {
       type: String,
       required: [true, "CreateId is required"],
+    },
+    StatusForChange: {
+      type: boolean,
+      default: false,
     },
     Id: {
       type: String,
