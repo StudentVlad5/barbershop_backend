@@ -9,6 +9,7 @@ const {
   routerUpdateEvent,
   routerOwner,
   routerMessage,
+  routerAdmin,
 } = require('./routes/api');
 
 const app = express();
