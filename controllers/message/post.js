@@ -1,8 +1,8 @@
 const { Messages } = require("../../models");
 
 const post = async (req, res, next) => {
-  const { name, phone, message } = req.body;
-  console.log(req.body);
+  const { name, phone, message } = req.Payload;
+  console.log(req.Payload);
   try {
     await Messages.create({ name, phone, message });
     return res.status(200).json({ message: "Success status" });
