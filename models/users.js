@@ -1,8 +1,8 @@
-const Joi = require("joi");
+const Joi = require('joi');
 // const { string } = require('joi');
-const mongoose = require("mongoose");
-require("mongoose-type-email");
-require("mongoose-type-url");
+const mongoose = require('mongoose');
+require('mongoose-type-email');
+require('mongoose-type-url');
 
 const userValidationSchema = Joi.object({
   userName: Joi.string().min(3).max(32).required(),
@@ -12,7 +12,7 @@ const userValidationSchema = Joi.object({
   phone: Joi.string().min(7).max(13).required(),
   birthday: Joi.date(),
   avatar: Joi.string().uri(),
-  role: Joi.string().valid("user", "admin"),
+  role: Joi.string().valid('user', 'admin'),
 });
 
 const userUpdateValidationSchema = Joi.object({
@@ -23,30 +23,31 @@ const userUpdateValidationSchema = Joi.object({
   phone: Joi.string().min(7).max(32),
   birthday: Joi.date(),
   avatar: Joi.string().uri(),
-  role: Joi.string().valid("user", "admin"),
+  role: Joi.string().valid('user', 'admin'),
 });
+
 const UsersSchema = new mongoose.Schema(
   {
     userName: {
       type: String,
-      required: [true, "Set user name"],
+      required: [true, 'Set user name'],
     },
     email: {
       type: mongoose.SchemaTypes.Email,
-      required: [true, "Set email user"],
+      required: [true, 'Set email user'],
       unique: true,
     },
     password: {
       type: String,
-      required: [true, "Set password"],
+      required: [true, 'Set password'],
     },
     location: {
       type: String,
-      required: [true, "Set comments for pet"],
+      required: [true, 'Set comments for pet'],
     },
     phone: {
       type: String,
-      required: [true, "Set phone Number"],
+      required: [true, 'Set phone Number'],
     },
     birthday: {
       type: Date,
@@ -54,7 +55,7 @@ const UsersSchema = new mongoose.Schema(
     },
     avatar: {
       type: mongoose.SchemaTypes.Url,
-      default: "",
+      default: '',
     },
     isActivate: {
       type: Boolean,
@@ -62,16 +63,16 @@ const UsersSchema = new mongoose.Schema(
     },
     authToken: {
       type: String,
-      default: "",
+      default: '',
     },
     refreshToken: {
       type: String,
-      default: "",
+      default: '',
     },
     role: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user",
+      enum: ['user', 'admin'],
+      default: 'user',
     },
   },
   {
@@ -80,6 +81,6 @@ const UsersSchema = new mongoose.Schema(
   }
 );
 
-const Users = mongoose.model("users", UsersSchema);
+const Users = mongoose.model('users', UsersSchema);
 
 module.exports = { Users, userValidationSchema, userUpdateValidationSchema };
