@@ -1,4 +1,3 @@
-const { boolean } = require("joi");
 const { Schema, model, SchemaTypes } = require("mongoose");
 
 const eventSchema = new Schema(

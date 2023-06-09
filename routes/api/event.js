@@ -2,16 +2,7 @@ const express = require("express");
 const { event } = require("../../controllers");
 const { ctrlWrapper } = require("../../middleWares");
 
-const {
-  createNotices,
-  get,
-  getId,
-  addFavorite,
-  deleteFavorite,
-  deleteNotices,
-  updateNotices,
-  editNotices,
-} = event;
+const { get } = event;
 
 const router = express.Router();
 

@@ -3,17 +3,12 @@ const logger = require("morgan");
 const cors = require("cors");
 const { errorHandler } = require("./helpers");
 const {
-  routerNotices,
-  routerFriends,
-  routerNews,
-  routerPets,
   routerAuth,
   routerUser,
-  routerAdmin,
-  routerDevelopers,
   routerEvent,
   routerUpdateEvent,
   routerOwner,
+  routerMessage,
 } = require("./routes/api");
 
 const app = express();
@@ -27,6 +22,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "*");
   next();
 });
+app.use(express.urlencoded());
 app.use(express.json());
 
 app.use("/api/auth", routerAuth);
@@ -34,6 +30,7 @@ app.use("/api/get_event", routerEvent);
 app.use("/api/batch_event", routerUpdateEvent);
 app.use("/api/owner", routerOwner);
 app.use("/api/user", routerUser);
+app.use("/api/message", routerMessage);
 
 // app.use('/api/location', ctrl.location);
 

@@ -5,6 +5,7 @@ const {
 } = require("./users");
 const Event = require("./event");
 const Owner = require("./owner");
+const Messages = require("./message");
 
 module.exports = {
   Users,
@@ -12,4 +13,5 @@ module.exports = {
   userUpdateValidationSchema,
   Event,
   Owner,
+  Messages,
 };
