@@ -1,5 +1,6 @@
 const express = require('express');
-const { user, services } = require('../../controllers');
+// const { user, services } = require('../../controllers');
+const { user } = require('../../controllers');
 const {
   ctrlWrapper,
   authMiddleware,
@@ -30,22 +31,22 @@ router.patch(
   ctrlWrapper(user.updateUser)
 );
 
-router.get(
-  '/services',
-  ctrlWrapper(authMiddleware),
-  ctrlWrapper(services.getServices)
-);
+// router.get(
+//   '/services',
+//   ctrlWrapper(authMiddleware),
+//   ctrlWrapper(services.getServices)
+// );
 
-router.delete(
-  '/services/:id',
-  ctrlWrapper(authMiddleware),
-  ctrlWrapper(services.deleteServices)
-);
+// router.delete(
+//   '/services/:id',
+//   ctrlWrapper(authMiddleware),
+//   ctrlWrapper(services.deleteServices)
+// );
 
-router.patch(
-  '/services/:id',
-  ctrlWrapper(authMiddleware),
-  ctrlWrapper(services.updateService)
-);
+// router.patch(
+//   '/services/:id',
+//   ctrlWrapper(authMiddleware),
+//   ctrlWrapper(services.updateService)
+// );
 
 module.exports = routerAdmin = router;
