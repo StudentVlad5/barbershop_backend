@@ -9,6 +9,7 @@ const {
   routerUpdateEvent,
   routerOwner,
   routerMessage,
+  routerAdmin,
   routerService,
 } = require("./routes/api");
 
@@ -32,6 +33,7 @@ app.use("/api/batch_event", routerUpdateEvent);
 app.use("/api/owner", routerOwner);
 app.use("/api/user", routerUser);
 app.use("/api/message", routerMessage);
+app.use("/api/admin", routerAdmin);
 app.use("/api/services", routerService);
 
 // app.use('/api/location', ctrl.location);
