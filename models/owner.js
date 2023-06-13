@@ -19,7 +19,7 @@ const ownerSchema = new Schema(
       required: [true, 'designation is required'],
     },
     workDays: {
-      type: Array,
+      type: String,
     },
     startHour: {
       type: String,

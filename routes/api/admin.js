@@ -11,6 +11,7 @@ const { userUpdateValidationSchema } = require('../../models');
 
 const router = express.Router();
 
+//USERS
 router.get('/users', ctrlWrapper(authMiddleware), ctrlWrapper(user.getUsers));
 router.get(
   '/users/:id',
@@ -31,6 +32,7 @@ router.patch(
   ctrlWrapper(user.updateUser)
 );
 
+// SERVICES
 router.get(
   '/services',
   // ctrlWrapper(authMiddleware),
@@ -55,6 +57,7 @@ router.patch(
   ctrlWrapper(services.updateService)
 );
 
+// OWNERS
 router.get('/owners', ctrlWrapper(authMiddleware), ctrlWrapper(owner.get));
 router.get(
   '/owners/:id',
@@ -70,7 +73,6 @@ router.delete(
 router.patch(
   '/owners/:id',
   ctrlWrapper(authMiddleware),
-  uploadCloud.single('avatar'),
   ctrlWrapper(owner.updateOwner)
 );
 
