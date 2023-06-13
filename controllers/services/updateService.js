@@ -1,12 +1,12 @@
 const { ValidationError } = require('../../helpers');
-const { Services } = require('../../models');
+const { Service } = require('../../models');
 const { dataFilter } = require('../../helpers');
 
 const updateService = async (req, res, next) => {
   const { id } = req.params;
   try {
     const newData = dataFilter(req.body);
-    const resUpdate = await Services.findByIdAndUpdate({ _id: id }, newData, {
+    const resUpdate = await Service.findByIdAndUpdate({ _id: id }, newData, {
       new: true,
     });
     const newResponse = dataFilter(resUpdate);

@@ -1,9 +1,9 @@
-const { Services } = require('../../models');
+const { Service } = require('../../models');
 
 const getServiceById = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const service = await Services.findById({ _id: id });
+    const service = await Service.findById({ _id: id });
     res.status(200).json(service);
   } catch (error) {
     throw new WrongIdError(error.message);

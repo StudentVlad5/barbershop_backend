@@ -5,7 +5,6 @@ const routerUpdateEvent = require("./updateEvent");
 const routerOwner = require("./owner");
 const routerMessage = require("./message");
 const routerAdmin = require('./admin');
-const routerService = require("./service");
 
 module.exports = {
   routerAuth,
@@ -15,5 +14,4 @@ module.exports = {
   routerOwner,
   routerMessage,
   routerAdmin,
-  routerService,
 };
