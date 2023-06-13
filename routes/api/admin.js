@@ -37,6 +37,12 @@ router.get(
   ctrlWrapper(services.getServices)
 );
 
+router.get(
+  "/services/:id",
+  ctrlWrapper(authMiddleware),
+  ctrlWrapper(services.getServiceById)
+);
+
 router.delete(
   "/services/:id",
   ctrlWrapper(authMiddleware),
