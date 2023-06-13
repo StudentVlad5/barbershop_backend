@@ -16,4 +16,4 @@ const createService = async (req, res, next) => {
   }
 };
 
-module.exports = updateService;
+module.exports = createService;
