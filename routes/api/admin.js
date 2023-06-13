@@ -1,5 +1,6 @@
 const express = require('express');
-const { user, services } = require('../../controllers');
+const { user, services, owner } = require('../../controllers');
+
 const {
   ctrlWrapper,
   authMiddleware,
@@ -36,6 +37,12 @@ router.get(
   ctrlWrapper(services.getServices)
 );
 
+router.get(
+  '/services/:id',
+  ctrlWrapper(authMiddleware),
+  ctrlWrapper(services.getServiceById)
+);
+
 router.delete(
   '/services/:id',
   ctrlWrapper(authMiddleware),
@@ -46,6 +53,25 @@ router.patch(
   '/services/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(services.updateService)
+);
+
+router.get('/owners', ctrlWrapper(authMiddleware), ctrlWrapper(owner.get));
+router.get(
+  '/owners/:id',
+  ctrlWrapper(authMiddleware),
+  ctrlWrapper(owner.getOwnerById)
+);
+router.delete(
+  '/owners/:id',
+  ctrlWrapper(authMiddleware),
+  ctrlWrapper(owner.deleteOwners)
+);
+
+router.patch(
+  '/owners/:id',
+  ctrlWrapper(authMiddleware),
+  uploadCloud.single('avatar'),
+  ctrlWrapper(owner.updateOwner)
 );
 
 module.exports = routerAdmin = router;
