@@ -5,8 +5,8 @@ const { dataFilter } = require("../../helpers");
 const updateService = async (req, res, next) => {
   const { id } = req.params;
   try {
-    const newData = dataFilter(req.body);
     console.log(req.body);
+    const newData = dataFilter(req.body);
     const resUpdate = await Service.findByIdAndUpdate({ _id: id }, newData, {
       new: true,
     });
