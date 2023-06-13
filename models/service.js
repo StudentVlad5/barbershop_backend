@@ -27,6 +27,14 @@ const ServiceSchema = new mongoose.Schema(
       type: String,
       required: [true, "Set subject for service"],
     },
+    location: {
+      type: String,
+      default: "all",
+    },
+    owner: {
+      type: String,
+      default: "all",
+    },
   },
   {
     versionKey: false,
