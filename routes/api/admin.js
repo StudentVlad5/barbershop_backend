@@ -37,6 +37,12 @@ router.get(
   ctrlWrapper(services.getServices)
 );
 
+router.post(
+  "/services/create",
+  ctrlWrapper(authMiddleware),
+  ctrlWrapper(services.createServices)
+);
+
 router.get(
   "/services/:id",
   ctrlWrapper(authMiddleware),
