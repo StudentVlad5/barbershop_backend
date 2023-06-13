@@ -33,7 +33,7 @@ router.patch(
 
 router.get(
   '/services',
-  ctrlWrapper(authMiddleware),
+  // ctrlWrapper(authMiddleware),
   ctrlWrapper(services.getServices)
 );
 

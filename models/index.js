@@ -6,6 +6,7 @@ const {
 const Event = require("./event");
 const Owner = require("./owner");
 const Messages = require("./message");
+const { Service, serviceValidationSchema } = require("./service");
 
 module.exports = {
   Users,
@@ -14,4 +15,6 @@ module.exports = {
   Event,
   Owner,
   Messages,
+  Service,
+  serviceValidationSchema,
 };
