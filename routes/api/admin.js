@@ -36,13 +36,13 @@ router.patch(
 router.get(
   "/services",
   // ctrlWrapper(authMiddleware),
-  ctrlWrapper(services.createService)
+  ctrlWrapper(services.getServices)
 );
 
 router.post(
   "/services/create",
   ctrlWrapper(authMiddleware),
-  ctrlWrapper(services.createServices)
+  ctrlWrapper(services.createService)
 );
 
 router.get(
