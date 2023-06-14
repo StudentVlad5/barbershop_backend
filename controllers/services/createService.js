@@ -3,6 +3,7 @@ const { Service } = require("../../models");
 // const { dataFilter } = require("../../helpers");
 
 const createService = async (req, res, next) => {
+  console.log("req.body", req.body);
   // const { id } = req.params;
   try {
     // const newData = dataFilter(req.body);
