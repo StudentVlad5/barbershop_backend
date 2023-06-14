@@ -50,7 +50,9 @@ const signup = async (req, res, next) => {
 
   const newUser = dataFilter(result, userFullField);
 
-  res.status(201).json({ code: "201", message: "user create", data: newUser });
+  res
+    .status(201)
+    .json({ code: "201", message: "user create", data: newUser._doc });
 };
 
 module.exports = signup;
