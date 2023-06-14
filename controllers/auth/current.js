@@ -5,7 +5,7 @@ const current = async (req, res, next) => {
   const newUser = dataFilter(user, userMainField);
   res
     .status(200)
-    .json({ code: 200, message: "Auth OK", data: { user: newUser } });
+    .json({ code: 200, message: "Auth OK", data: { user: newUser._doc } });
 };
 
 module.exports = current;
