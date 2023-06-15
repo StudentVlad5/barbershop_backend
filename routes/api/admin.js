@@ -7,7 +7,10 @@ const {
   validation,
   uploadCloud,
 } = require('../../middleWares');
-const { userUpdateValidationSchema } = require('../../models');
+const {
+  userUpdateValidationSchema,
+  ownerValidationSchema,
+} = require('../../models');
 
 const router = express.Router();
 
@@ -86,6 +89,7 @@ router.delete(
 router.patch(
   '/owners/:id',
   ctrlWrapper(authMiddleware),
+  validation(ownerValidationSchema),
   ctrlWrapper(owner.updateOwner)
 );
 

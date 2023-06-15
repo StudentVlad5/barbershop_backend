@@ -1,4 +1,20 @@
+const Joi = require('joi');
 const { Schema, model, SchemaTypes } = require('mongoose');
+
+const ownerValidationSchema = Joi.object({
+  ownerText: Joi.string().min(3).max(32),
+  Id: Joi.number(),
+  ownerColor: Joi.string(),
+  designation: Joi.string(),
+  workDays: Joi.string(),
+  startHour: Joi.string(),
+  endHour: Joi.string(),
+  groupId: Joi.number(),
+  linkedin: Joi.string().uri(),
+  twitter: Joi.string().uri(),
+  instagram: Joi.string().uri(),
+  facebook: Joi.string().uri(),
+});
 
 const ownerSchema = new Schema(
   {
@@ -21,8 +37,6 @@ const ownerSchema = new Schema(
     workDays: {
       type: String,
     },
-    // { type: Array, default: [] },
-    //{ type: [String] },
     startHour: {
       type: String,
     },
@@ -30,6 +44,18 @@ const ownerSchema = new Schema(
       type: String,
     },
     groupId: {
+      type: String,
+    },
+    linkedin: {
+      type: String,
+    },
+    twitter: {
+      type: String,
+    },
+    instagram: {
+      type: String,
+    },
+    facebook: {
       type: String,
     },
   },
@@ -41,4 +67,4 @@ const ownerSchema = new Schema(
 
 const Owner = model('owner', ownerSchema);
 
-module.exports = Owner;
+module.exports = { Owner, ownerValidationSchema };
