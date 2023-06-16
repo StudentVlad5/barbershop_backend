@@ -82,4 +82,10 @@ router.patch(
   ctrlWrapper(owner.updateOwner)
 );
 
+router.post(
+  "/owners/create",
+  ctrlWrapper(authMiddleware),
+  ctrlWrapper(services.createService)
+);
+
 module.exports = routerAdmin = router;
