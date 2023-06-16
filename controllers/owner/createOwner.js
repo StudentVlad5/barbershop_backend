@@ -6,6 +6,7 @@ const createOwner = async (req, res, next) => {
     const resUpdate = await Owner.create(req.body, {
       new: true,
     });
+    console.log(resUpdate);
     return res.status(201).json(resUpdate);
   } catch (err) {
     throw new ValidationError(err.message);
