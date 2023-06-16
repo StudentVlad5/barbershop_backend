@@ -2,7 +2,6 @@ const { ValidationError } = require("../../helpers");
 const { Service } = require("../../models");
 
 const createService = async (req, res, next) => {
-  console.log("req.body", req.body);
   try {
     const resUpdate = await Service.create(req.body, {
       new: true,
