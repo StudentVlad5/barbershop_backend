@@ -3,6 +3,8 @@ const { Owner } = require("../../models");
 
 const createOwner = async (req, res, next) => {
   try {
+    console.log(req.body);
+    console.log(req.file);
     const fullData = { ...req.body };
     req.file?.path && (fullData.avatar = req.file.path);
     const resCreate = await Owner.create(fullData);
