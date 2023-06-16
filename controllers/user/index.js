@@ -1,4 +1,4 @@
-const get = require('./get');
+// const get = require('./get');
 const getUserById = require('./getId');
 const getUsers = require('./getAll');
 const updateAvatar = require('./updateAvatar');
@@ -7,7 +7,7 @@ const createUser = require('./createUser');
 const deleteUsers = require('./delete');
 
 module.exports = {
-  get,
+  // get,
   getUserById,
   getUsers,
   updateAvatar,

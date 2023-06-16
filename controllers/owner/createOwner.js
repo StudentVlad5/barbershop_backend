@@ -4,9 +4,10 @@ const { Owner } = require("../../models");
 const createOwner = async (req, res, next) => {
   try {
     const fullData = { ...req.body };
-    const resUpdate = await Owner.create(fullData);
-    console.log("resUpdate", resUpdate);
-    return res.status(201).json(resUpdate);
+    req.file?.path && (fullData.avatar = req.file.path);
+    const resCreate = await Owner.create(fullData);
+    req.file?.path && (resCreate.avatar = req.file.path);
+    return res.status(201).json(resCreate);
   } catch (err) {
     throw new ValidationError(err.message);
   }
