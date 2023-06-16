@@ -34,8 +34,9 @@ const ownerSchema = new Schema(
       type: String,
     },
     avatar: {
-      type: SchemaTypes.Url,
-      default: "",
+      type: String,
+      required: [true, "URL can't be empty"],
+      unique: true,
     },
   },
   {
