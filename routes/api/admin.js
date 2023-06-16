@@ -92,7 +92,7 @@ router.patch(
 router.post(
   "/owners/create",
   ctrlWrapper(authMiddleware),
-  ctrlWrapper(services.createService)
+  ctrlWrapper(owner.createOwner)
 );
 
 module.exports = routerAdmin = router;
