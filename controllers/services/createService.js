@@ -4,9 +4,7 @@ const { Service } = require("../../models");
 const createService = async (req, res, next) => {
   try {
     const fullData = { ...req.body};
-    const resUpdate = await Service.create(fullData, {
-      new: true,
-    });
+    const resUpdate = await Service.create(fullData);
     console.log("resUpdate",resUpdate);
     return res.status(201).json(resUpdate);
   } catch (err) {
