@@ -21,6 +21,8 @@ const ownerSchema = new Schema(
     workDays: {
       type: String,
     },
+    // { type: Array, default: [] },
+    //{ type: [String] },
     startHour: {
       type: String,
     },
