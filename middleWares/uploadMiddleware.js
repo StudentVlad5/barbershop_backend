@@ -13,11 +13,11 @@ const storage = new CloudinaryStorage({
   params:{
   folder: "barbershop",
   resource_type: "auto",
-  allowedFormats: ["jpg", "png", "jpeg", "webp", "gif"],
+  allowedFormats: ["jpg", "png", "jpeg", "webp", "gif"]},
   filename: (req, res, cb) => {cb(null, res.originalname);
   },
   transformation: [{ width: 500, height: 500, crop: "limit" }],
-}
+
 });
 
 const uploadCloud = multer({ storage });
