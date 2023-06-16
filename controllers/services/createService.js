@@ -3,10 +3,11 @@ const { Service } = require("../../models");
 
 const createService = async (req, res, next) => {
   try {
-    const resUpdate = await Service.create(req.body, {
+    const fullData = { ...req.body};
+    const resUpdate = await Service.create(fullData, {
       new: true,
     });
-    console.log(resUpdate);
+    console.log("resUpdate",resUpdate);
     return res.status(201).json(resUpdate);
   } catch (err) {
     throw new ValidationError(err.message);
