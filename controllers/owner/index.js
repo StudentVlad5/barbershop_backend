@@ -9,4 +9,5 @@ module.exports = {
   getOwnerById,
   updateOwner,
   deleteOwners,
+  createOwners
 };
