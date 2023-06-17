@@ -1,10 +1,10 @@
-const { ValidationError } = require('../../helpers');
-const { Users } = require('../../models');
+const { ValidationError } = require("../../helpers");
+const { Users } = require("../../models");
 const {
   userMainField,
   userFieldReceivedFromFront,
   dataFilter,
-} = require('../../helpers');
+} = require("../../helpers");
 
 const updateUser = async (req, res, next) => {
   const { id } = req.params;
@@ -16,7 +16,7 @@ const updateUser = async (req, res, next) => {
     });
     const newResponse = dataFilter(resUpdate, userMainField);
     req.file?.path && (newResponse.avatar = req.file.path);
-    return res.status(201).json(newResponse);
+    return res.status(201).json(newResponse._doc);
   } catch (err) {
     throw new ValidationError(err.message);
   }

@@ -90,7 +90,15 @@ router.patch(
   '/owners/:id',
   ctrlWrapper(authMiddleware),
   validation(ownerValidationSchema),
+  uploadCloud.single('avatar'),
   ctrlWrapper(owner.updateOwner)
+);
+
+router.post(
+  '/owners/create',
+  ctrlWrapper(authMiddleware),
+  uploadCloud.single('avatar'),
+  ctrlWrapper(owner.createOwner)
 );
 
 module.exports = routerAdmin = router;

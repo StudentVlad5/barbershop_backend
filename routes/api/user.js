@@ -1,22 +1,22 @@
-const express = require('express');
-const { user: ctrl } = require('../../controllers');
+const express = require("express");
+const { user } = require("../../controllers");
 const {
   ctrlWrapper,
   authMiddleware,
   validation,
   uploadCloud,
-} = require('../../middleWares');
-const { userUpdateValidationSchema } = require('../../models');
+} = require("../../middleWares");
+const { userUpdateValidationSchema } = require("../../models");
 
 const router = express.Router();
 
-router.get('/', ctrlWrapper(authMiddleware), ctrlWrapper(ctrl.get));
+router.get("/", ctrlWrapper(authMiddleware), ctrlWrapper(user.get));
 router.patch(
-  '/',
+  "/:id",
   ctrlWrapper(authMiddleware),
-  uploadCloud.single('avatar'),
+  uploadCloud.single("avatar"),
   validation(userUpdateValidationSchema),
-  ctrlWrapper(ctrl.updateAvatar)
+  ctrlWrapper(user.updateUser)
 );
 
 module.exports = routerUser = router;
