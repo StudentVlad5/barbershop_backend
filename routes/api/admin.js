@@ -16,7 +16,7 @@ router.patch(
   ctrlWrapper(authMiddleware),
   uploadCloud.single("avatar"),
   validation(userUpdateValidationSchema),
-  ctrlWrapper(ctrl.updateAvatar)
+  ctrlWrapper(user.updateAvatar)
 );
 
 //USERS
