@@ -17,55 +17,59 @@ const ownerValidationSchema = Joi.object({
   facebook: Joi.string().uri(),
 });
 
-const ownerSchema = new Schema({
-  ownerText: {
-    type: String,
-    required: [true, 'OwnerText is required'],
+const ownerSchema = new Schema(
+  {
+    ownerText: {
+      type: String,
+      required: [true, 'OwnerText is required'],
+    },
+    Id: {
+      type: Number,
+      required: [true, 'Id is required'],
+    },
+    ownerColor: {
+      type: String,
+      required: [true, 'OwnerColor is required'],
+    },
+    designation: {
+      type: String,
+      required: [true, 'designation is required'],
+    },
+    workDays: {
+      type: String,
+    },
+    startHour: {
+      type: String,
+    },
+    endHour: {
+      type: String,
+    },
+    groupId: {
+      type: String,
+    },
+    linkedin: {
+      type: String,
+    },
+    twitter: {
+      type: String,
+    },
+    instagram: {
+      type: String,
+    },
+    facebook: {
+      type: String,
+    },
+    avatar: {
+      type: String,
+      required: [true, "URL can't be empty"],
+      unique: true,
+    },
   },
-  Id: {
-    type: Number,
-    required: [true, 'Id is required'],
-  },
-  ownerColor: {
-    type: String,
-    required: [true, 'OwnerColor is required'],
-  },
-  designation: {
-    type: String,
-    required: [true, 'designation is required'],
-  },
-  workDays: {
-    type: String,
-  },
-  startHour: {
-    type: String,
-  },
-  endHour: {
-    type: String,
-  },
-  groupId: {
-    type: String,
-  },
-  linkedin: {
-    type: String,
-  },
-  twitter: {
-    type: String,
-  },
-  instagram: {
-    type: String,
-  },
-  facebook: {
-    type: String,
-  },
-  avatar: {
-    type: String,
-    required: [true, "URL can't be empty"],
-    unique: true,
-  },
-  versionKey: false,
-  timestamps: true,
-});
+  {
+    versionKey: false,
+    timestamps: true,
+  }
+);
 
 const Owner = model('owner', ownerSchema);
 
