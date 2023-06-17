@@ -11,14 +11,6 @@ const { userUpdateValidationSchema } = require("../../models");
 
 const router = express.Router();
 
-router.patch(
-  "/",
-  ctrlWrapper(authMiddleware),
-  uploadCloud.single("avatar"),
-  validation(userUpdateValidationSchema),
-  ctrlWrapper(user.updateAvatar)
-);
-
 //USERS
 router.get("/users", ctrlWrapper(authMiddleware), ctrlWrapper(user.getUsers));
 router.get(
