@@ -9,7 +9,9 @@ const {
 const update = async (req, res, next) => {
   const { id } = req.params;
   try {
+    console.log("req.body", req.body);
     const newData = dataFilter(req.body, userFieldReceivedFromFront);
+    console.log("newData", newData);
     req.file?.path && (newData.avatar = req.file.path);
     const resUpdate = await Users.findByIdAndUpdate({ _id: id }, newData, {
       new: true,
