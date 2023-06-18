@@ -10,7 +10,7 @@ const updateService = async (req, res, next) => {
       new: true,
     });
     const newResponse = dataFilterObj(resUpdate);
-    return res.status(201).json(newResponse);
+    return res.status(201).json(newResponse._doc);
   } catch (err) {
     throw new ValidationError(err.message);
   }

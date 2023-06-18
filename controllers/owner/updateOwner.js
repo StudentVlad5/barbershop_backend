@@ -17,7 +17,7 @@ const updateOwner = async (req, res, next) => {
     );
     const newResponse = dataFilterObj(resUpdate);
     req.file?.path && (newResponse.avatar = req.file.path);
-    return res.status(201).json(newResponse);
+    return res.status(201).json(newResponse._doc);
   } catch (err) {
     throw new ValidationError(err.message);
   }
