@@ -8,8 +8,8 @@ const {
 
 const update = async (req, res, next) => {
   const { id } = req.params;
+  console.log("req.body", req.body);
   try {
-    console.log("req.body", req.body);
     const newData = dataFilter(req.body, userFieldReceivedFromFront);
     console.log("newData", newData);
     req.file?.path && (newData.avatar = req.file.path);
