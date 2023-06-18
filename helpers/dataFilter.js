@@ -9,7 +9,13 @@ const dataFilter = (obj, arr) => {
 };
 
 const dataFilterObj = (obj) => {
-  const newObj = Object.entries(obj);
+  const newObj = {};
+  const arr = Object.keys(obj);
+  arr.map((item) => {
+    if (obj[item]) {
+      newObj[item] = obj[item];
+    }
+  });
   return newObj;
 };
 module.exports = { dataFilter, dataFilterObj };
