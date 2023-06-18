@@ -8,7 +8,7 @@ const {
 
 const update = async (req, res, next) => {
   const { id } = req.params;
-  console.log("req.body", req.body);
+    console.log("newData", newData);
     const newData = dataFilter(req.body, userFieldReceivedFromFront);
     if (!newData) {
       throw new ValidationError("Bad request, invalid data");
@@ -22,6 +22,8 @@ const update = async (req, res, next) => {
     const newResponse = dataFilter(resUpdate, userMainField);
     // req.file?.path && (newResponse.avatar = req.file.path);
     console.log("newResponse", newResponse);
-    return res.status(201).json(newResponse);
-  } ;
+    res
+    .status(201)
+    .json({ code: "201", message: "profile update", data: newResponse });
+};
 module.exports = update;
