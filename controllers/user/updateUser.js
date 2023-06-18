@@ -1,4 +1,6 @@
 const { ValidationError } = require("../../helpers");
+const bcrypt = require("bcryptjs");
+
 const { Users } = require("../../models");
 const {
   userMainField,
