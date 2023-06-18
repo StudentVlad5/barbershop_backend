@@ -19,7 +19,7 @@ const update = async (req, res, next) => {
       new: true,
     });
     console.log("resUpdate", resUpdate);
-    const newResponse = dataFilter(resUpdate, userMainField);
+    // const newResponse = dataFilter(resUpdate, userMainField);
     // req.file?.path && (newResponse.avatar = req.file.path);
     console.log("newResponse", newResponse);
     res
