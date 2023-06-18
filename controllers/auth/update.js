@@ -22,7 +22,7 @@ const update = async (req, res, next) => {
     // const newResponse = dataFilter(resUpdate, userMainField);
     // req.file?.path && (newResponse.avatar = req.file.path);
     console.log("newResponse", newResponse);
-    return res
+    res
     .status(201)
     .json({ code: "201", message: "profile update", data: newResponse });
 };
