@@ -8,4 +8,8 @@ const dataFilter = (obj, arr) => {
   return newObj;
 };
 
-module.exports = { dataFilter };
+const dataFilterObj = (obj) => {
+  const newObj = Object.entries(obj);
+  return newObj;
+};
+module.exports = { dataFilter, dataFilterObj };
