@@ -20,6 +20,6 @@ const update = async (req, res, next) => {
     req.file?.path && (newResponse.avatar = req.file.path);
     res
     .status(201)
-    .json({ code: "201", message: "profile update", data: newResponse });
+    .json(newResponse);
 };
 module.exports = update;
