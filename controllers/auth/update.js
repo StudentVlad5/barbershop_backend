@@ -14,8 +14,10 @@ const update = async (req, res, next) => {
     const resUpdate = await Users.findByIdAndUpdate({ _id: id }, newData, {
       new: true,
     });
+    console.log("resUpdate", resUpdate);
     const newResponse = dataFilter(resUpdate, userMainField);
-    req.file?.path && (newResponse.avatar = req.file.path);
+    // req.file?.path && (newResponse.avatar = req.file.path);
+    console.log("newResponse", newResponse);
     return res.status(201).json(newResponse);
   } catch (err) {
     throw new ValidationError(err.message);
