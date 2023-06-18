@@ -21,7 +21,6 @@ const signup = async (req, res, next) => {
 
   const userDataCreate = dataFilter(req.body, userFieldReceivedFromFront);
 
-  console.log("userDataCreate: ", userDataCreate);
   const hashPassword = bcrypt.hashSync(
     req.body.password,
     bcrypt.genSaltSync(10)
