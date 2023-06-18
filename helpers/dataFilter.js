@@ -1,7 +1,6 @@
-const dataFilter = (obj) => {
+const dataFilter = (obj, arr) => {
   const newObj = {};
-  const arr = Object.keys(obj)
-  arr.forEach(item => {
+  arr.forEach((item) => {
     if (obj[item]) {
       newObj[item] = obj[item];
     }
