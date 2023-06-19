@@ -21,7 +21,6 @@ const signup = async (req, res, next) => {
 
   const userDataCreate = dataFilter(req.body, userFieldReceivedFromFront);
 
-  console.log("userDataCreate: ", userDataCreate);
   const hashPassword = bcrypt.hashSync(
     req.body.password,
     bcrypt.genSaltSync(10)
@@ -52,7 +51,7 @@ const signup = async (req, res, next) => {
 
   res
     .status(201)
-    .json({ code: "201", message: "user create", data: newUser._doc });
+    .json({ code: "201", message: "user create", data: newUser });
 };
 
 module.exports = signup;

@@ -42,7 +42,7 @@ const signin = async (req, res, next) => {
   // .select(selectUserElement);
   const newResult = dataFilter(result, userFullField);
 
-  res.status(200).json({ code: 200, message: "ok", data: newResult._doc });
+  res.status(200).json({ code: 200, message: "ok", data: newResult });
 };
 
 module.exports = signin;

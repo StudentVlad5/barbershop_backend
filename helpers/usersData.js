@@ -33,6 +33,8 @@ const userFieldReceivedFromFront = [
   "phone",
   "birthday",
   "avatar",
+  "password",
+  "id"
 ];
 
 const requiredSignUpFields = [
