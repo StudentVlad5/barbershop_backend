@@ -7,6 +7,6 @@ const { get, getOwnerByIdForShadule } = owner;
 const router = express.Router();
 
 router.get("/", ctrlWrapper(get));
-router.get("/:id/", ctrlWrapper(getOwnerByIdForShadule));
+router.post("/:id/", ctrlWrapper(getOwnerByIdForShadule));
 
 module.exports = routerOwner = router;
