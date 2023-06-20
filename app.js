@@ -32,6 +32,7 @@ app.use('/api/get_event', routerEvent);
 app.use('/api/batch_event', routerUpdateEvent);
 app.use('/api/owner', routerOwner);
 app.use('/api/user', routerUser);
+app.use('/api/services', routerServices);
 app.use('/api/message', routerMessage);
 app.use('/api/admin', routerAdmin);
 app.use('/api/developers', routerDevelopers);
