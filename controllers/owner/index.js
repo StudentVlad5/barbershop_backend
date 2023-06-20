@@ -3,6 +3,7 @@ const getOwnerById = require("./getId");
 const updateOwner = require("./updateOwner");
 const deleteOwners = require("./delete");
 const createOwner = require("./createOwner");
+const getOwnerByIdForShadule = require("./getOwnerByIdForShadule");
 
 module.exports = {
   get,
@@ -10,4 +11,5 @@ module.exports = {
   updateOwner,
   deleteOwners,
   createOwner,
+  getOwnerByIdForShadule,
 };
