@@ -2,11 +2,12 @@ const {
   Users,
   userValidationSchema,
   userUpdateValidationSchema,
-} = require("./users");
-const Event = require("./event");
-const Owner = require("./owner");
-const Messages = require("./message");
-const { Service, serviceValidationSchema } = require("./service");
+} = require('./users');
+const Event = require('./event');
+const { Owner, ownerValidationSchema } = require('./owner');
+const Messages = require('./message');
+const { Service, serviceValidationSchema } = require('./service');
+const Developers = require('./developers');
 
 module.exports = {
   Users,
@@ -14,7 +15,9 @@ module.exports = {
   userUpdateValidationSchema,
   Event,
   Owner,
+  ownerValidationSchema,
   Messages,
   Service,
   serviceValidationSchema,
+  Developers,
 };

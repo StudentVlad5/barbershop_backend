@@ -1,99 +1,103 @@
-const express = require("express");
-const { user, services, owner } = require("../../controllers");
+const express = require('express');
+const { user, services, owner } = require('../../controllers');
 
 const {
   ctrlWrapper,
   authMiddleware,
   validation,
   uploadCloud,
-} = require("../../middleWares");
-const { userUpdateValidationSchema } = require("../../models");
+} = require('../../middleWares');
+const {
+  userUpdateValidationSchema,
+  ownerValidationSchema,
+} = require('../../models');
 
 const router = express.Router();
 
 //USERS
-router.get("/users", ctrlWrapper(authMiddleware), ctrlWrapper(user.getUsers));
+router.get('/users', ctrlWrapper(authMiddleware), ctrlWrapper(user.getUsers));
 router.get(
-  "/users/:id",
+  '/users/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(user.getUserById)
 );
 router.delete(
-  "/users/:id",
+  '/users/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(user.deleteUsers)
 );
 
 router.patch(
-  "/users/:id",
+  '/users/:id',
   ctrlWrapper(authMiddleware),
-  uploadCloud.single("avatar"),
+  uploadCloud.single('avatar'),
   validation(userUpdateValidationSchema),
   ctrlWrapper(user.updateUser)
 );
 
 router.post(
-  "/users/create",
+  '/users/create',
   ctrlWrapper(authMiddleware),
-  uploadCloud.single("avatar"),
+  uploadCloud.single('avatar'),
   ctrlWrapper(user.createUser)
 );
 
 // SERVICES
 router.get(
-  "/services",
+  '/services',
   // ctrlWrapper(authMiddleware),
   ctrlWrapper(services.getServices)
 );
 
 router.post(
-  "/services/create",
+  '/services/create',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(services.createService)
 );
 
 router.get(
-  "/services/:id",
+  '/services/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(services.getServiceById)
 );
 
 router.delete(
-  "/services/:id",
+  '/services/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(services.deleteServices)
 );
 
 router.patch(
-  "/services/:id",
+  '/services/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(services.updateService)
 );
 
 // OWNERS
-router.get("/owners", ctrlWrapper(authMiddleware), ctrlWrapper(owner.get));
+router.get('/owners', ctrlWrapper(authMiddleware), ctrlWrapper(owner.get));
 router.get(
-  "/owners/:id",
+  '/owners/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(owner.getOwnerById)
 );
 router.delete(
-  "/owners/:id",
+  '/owners/:id',
   ctrlWrapper(authMiddleware),
   ctrlWrapper(owner.deleteOwners)
 );
 
 router.patch(
-  "/owners/:id",
+  '/owners/:id',
   ctrlWrapper(authMiddleware),
-  uploadCloud.single("avatar"),
+  validation(ownerValidationSchema),
+  uploadCloud.single('avatar'),
   ctrlWrapper(owner.updateOwner)
 );
 
 router.post(
-  "/owners/create",
+  '/owners/create',
   ctrlWrapper(authMiddleware),
-  uploadCloud.single("avatar"),
+  uploadCloud.single('avatar'),
   ctrlWrapper(owner.createOwner)
 );
 
