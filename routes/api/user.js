@@ -11,6 +11,7 @@ const { userUpdateValidationSchema } = require("../../models");
 const router = express.Router();
 
 router.get("/", ctrlWrapper(authMiddleware), ctrlWrapper(user.get));
+router.get("/events/:id", ctrlWrapper(authMiddleware), ctrlWrapper(user.getUserEvents));
 router.patch(
   "/:id",
   ctrlWrapper(authMiddleware),
