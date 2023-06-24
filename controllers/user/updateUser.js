@@ -28,7 +28,7 @@ const updateUser = async (req, res, next) => {
         secure: true,
         auth: {
           user: "vlad_np@ukr.net",
-          pass: "VladPopov",
+          pass: "JhwpAiThh0pU1OP0",
         },
       });
 
