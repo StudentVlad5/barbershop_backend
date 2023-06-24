@@ -1,7 +1,7 @@
 const { ValidationError } = require("../../helpers");
 const bcrypt = require("bcryptjs");
-const nodemailer = require('nodemailer');
-const directTransport = require('nodemailer-direct-transport');
+const nodemailer = require("nodemailer");
+const directTransport = require("nodemailer-direct-transport");
 
 const { Users } = require("../../models");
 const {
@@ -20,30 +20,38 @@ const updateUser = async (req, res, next) => {
         newData.password,
         bcrypt.genSaltSync(10)
       );
+      const resepientEmail = Users.findById(id).email;
+      console.log(resepientEmail);
       newData.password = hashPassword;
 
       const fromHost = `ukr.net`;
-      const from = 'barber_support' + '@' + fromHost; 
-      const to = newData.email;
-      const transport = nodemailer.createTransport(directTransport({
-        name: fromHost
-      }));
-      transport.sendMail({
-        from, to,
-        subject: 'Change password',
-        html: `
+      const from = "barber_support" + "@" + fromHost;
+      const to = resepientEmail;
+      const transport = nodemailer.createTransport(
+        directTransport({
+          name: fromHost,
+        })
+      );
+      transport.sendMail(
+        {
+          from,
+          to,
+          subject: "Change password",
+          html: `
                <h1>Hello</h1>
                <p>Hello. Please pay attention to replacing the access password for the Barber service
                We wish you a nice day.</p>
                <p>Barber service support</p>
-              `
-      }, (err, data) => {
-        if (err) {
-          console.error('Ошибка при отправке:', err);
-        } else {
-          console.log('Письмо отправлено');
+              `,
+        },
+        (err, data) => {
+          if (err) {
+            console.error("Ошибка при отправке:", err);
+          } else {
+            console.log("Письмо отправлено");
+          }
         }
-      });
+      );
     }
     const resUpdate = await Users.findByIdAndUpdate({ _id: id }, newData, {
       new: true,
