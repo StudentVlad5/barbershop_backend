@@ -23,9 +23,11 @@ const updateUser = async (req, res, next) => {
       newData.password = hashPassword;
 
       let transporter = nodemailer.createTransport({
-        sendmail: true,
-        newline: "unix",
-        path: "/sendmail",
+        service: "Barbershop",
+        auth: {
+          user: "vlad_np@ukr.net",
+          pass: "JhwpAiThh0pU1OP0",
+        },
       });
 
       const fromHost = `ukr.net`;
