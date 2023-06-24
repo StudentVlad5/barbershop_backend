@@ -27,8 +27,8 @@ const updateUser = async (req, res, next) => {
         port: 465,
         secure: true,
         auth: {
-          user: "vlad_np@ukr.net",
-          pass: "JhwpAiThh0pU1OP0",
+          user: process.env.EMAIL_SEND,
+          pass: process.env.EMAIL_PASSWORD,
         },
       });
 
