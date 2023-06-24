@@ -21,28 +21,20 @@ const updateUser = async (req, res, next) => {
         bcrypt.genSaltSync(10)
       );
       const user = await Users.findById({ _id: id });
-      console.log(user);
       newData.password = hashPassword;
 
       const fromHost = `ukr.net`;
       const from = "barber_support" + "@" + fromHost;
       const to = user.email;
       const transport = nodemailer.createTransport(
-        directTransport({
-          name: fromHost,
-        })
+        directTransport({ name: fromHost })
       );
       transport.sendMail(
         {
           from,
           to,
           subject: "Change password",
-          html: `
-               <h1>Hello</h1>
-               <p>Hello. Please pay attention to replacing the access password for the Barber service
-               We wish you a nice day.</p>
-               <p>Barber service support</p>
-              `,
+          html: `<h1>Hello</h1><p>Hello. Please pay attention to replacing the access password for the Barber service We wish you a nice day.</p><p>Barber service support</p>`,
         },
         (err, data) => {
           if (err) {
