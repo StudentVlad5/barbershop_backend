@@ -41,7 +41,7 @@ const updateUser = async (req, res, next) => {
           from,
           to,
           subject: "Change password",
-          html: `<h1>Hello</h1><p>Hello. Please pay attention to replacing the access password for the Barber service We wish you a nice day.</p><p>Barber service support</p>`,
+          html: `<h1>Hello</h1><p>Hello. Please pay attention to replacing the access password to the Barber service</p><p>Hope to see you soon. <br> Wish you a nice day.</p><p>Your Barber service support</p>`,
         },
         (err, data) => {
           if (err) {
