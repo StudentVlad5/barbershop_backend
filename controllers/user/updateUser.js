@@ -1,7 +1,7 @@
 const { ValidationError } = require("../../helpers");
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
-const directTransport = require("nodemailer-direct-transport");
+
 
 const { Users } = require("../../models");
 const {
@@ -23,13 +23,17 @@ const updateUser = async (req, res, next) => {
       const user = await Users.findById({ _id: id });
       newData.password = hashPassword;
 
+      let transporter = nodemailer.createTransport({
+        sendmail: true,
+        newline: 'unix',
+        path: '/usr/sbin/sendmail'
+    });
+
       const fromHost = `ukr.net`;
       const from = "barber_support" + "@" + fromHost;
       const to = user.email;
-      const transport = nodemailer.createTransport(
-        directTransport({ name: fromHost })
-      );
-      transport.sendMail(
+
+      transporter.sendMail(
         {
           from,
           to,
