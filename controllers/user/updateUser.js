@@ -32,8 +32,8 @@ const updateUser = async (req, res, next) => {
         },
       });
 
-      const fromHost = `ukr.net`;
-      const from = "barber_support" + "@" + fromHost;
+  
+      const from = "Barber Support <vlad_np@ukr.net>";
       const to = user.email;
 
       transporter.sendMail(
