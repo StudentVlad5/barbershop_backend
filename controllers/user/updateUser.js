@@ -2,7 +2,6 @@ const { ValidationError } = require("../../helpers");
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 
-
 const { Users } = require("../../models");
 const {
   userMainField,
@@ -25,9 +24,9 @@ const updateUser = async (req, res, next) => {
 
       let transporter = nodemailer.createTransport({
         sendmail: true,
-        newline: 'unix',
-        path: '/usr/sbin/sendmail'
-    });
+        newline: "unix",
+        path: "/sendmail",
+      });
 
       const fromHost = `ukr.net`;
       const from = "barber_support" + "@" + fromHost;
