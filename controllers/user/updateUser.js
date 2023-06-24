@@ -20,7 +20,7 @@ const updateUser = async (req, res, next) => {
         newData.password,
         bcrypt.genSaltSync(10)
       );
-      const resepientEmail = Users.findById(id).email;
+      const resepientEmail = Users.findById({ _id: id }).email;
       console.log(resepientEmail);
       newData.password = hashPassword;
 
