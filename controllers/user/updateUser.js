@@ -20,13 +20,13 @@ const updateUser = async (req, res, next) => {
         newData.password,
         bcrypt.genSaltSync(10)
       );
-      const resepientEmail = Users.findById({ _id: id }).email;
-      console.log(resepientEmail);
+      const user = await Users.findById({ _id: id });
+      console.log(user);
       newData.password = hashPassword;
 
       const fromHost = `ukr.net`;
       const from = "barber_support" + "@" + fromHost;
-      const to = resepientEmail;
+      const to = user.email;
       const transport = nodemailer.createTransport(
         directTransport({
           name: fromHost,
