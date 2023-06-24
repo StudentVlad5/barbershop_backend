@@ -22,11 +22,13 @@ const updateUser = async (req, res, next) => {
       const user = await Users.findById({ _id: id });
       newData.password = hashPassword;
 
-      let transporter = nodemailer.createTransport({
-        service: "Barbershop",
+      const transporter = nodemailer.createTransport({
+        host: "smtp.ukr.net",
+        port: 465,
+        secure: true,
         auth: {
           user: "vlad_np@ukr.net",
-          pass: "JhwpAiThh0pU1OP0",
+          pass: "VladPopov",
         },
       });
 
